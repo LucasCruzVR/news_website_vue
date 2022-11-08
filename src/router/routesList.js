@@ -7,6 +7,10 @@ Vue.use(VueRouter)
 const router = new VueRouter({
     routes: [
         {
+            path: "/",
+            redirect: "/news"
+        },
+        {
             path: "/news",
             component: NewsIndex,
             name: routesName.NEWS_INDEX,

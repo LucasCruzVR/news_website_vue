@@ -1,15 +1,27 @@
 <template>
-    <div>
-        teste
+    <div class="body">
+        <HighlightPosts/>
+        <div >
+            <NewsCards/>
+        </div>
     </div>
 </template>
 
 <script>
+import HighlightPosts from '@/components/HighlightPosts.vue';
+import NewsCards from '@/components/NewsCards.vue';
 export default {
-    name: "NewsIndex"
+    name: "NewsIndex",
+    components: {
+        HighlightPosts,
+        NewsCards
+    }
 }
 </script>
 
 <style lang="scss" scoped>
+.body {
     
+    background-color: #DCDCDC;
+}
 </style>
