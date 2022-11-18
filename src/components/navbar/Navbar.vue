@@ -1,27 +1,65 @@
 <template>
-    <div>
-        <nav class="navbar navbar-expand-lg bg-success d-flex justify-content-between">
-            <a class="navbar-brand border">Logo</a>
+    <nav class="top-nav">
+        <ul>
+            <img class="logo" src="../../assets/images/icons8-news.svg"/>
+            <!--<li v-for="menu, index in menuList" :key="index">
+                <a v-if="index == optionActive" href="#">{{ menu }}</a>
+                <a v-else href="#">{{ menu }}</a>
+            </li>-->
             <MenuTabs/>
-            <a class="navbar-brand border">foto pefil</a>
-        </nav>
-    </div>
+            <a>foto pefil</a>
+        </ul>
+    </nav>
 </template>
 
 <script>
-import MenuTabs from './MenuTabs.vue'
+import MenuTabs from './MenuTabs.vue';
 export default {
     name: 'NavbarTop',
     components: {
         MenuTabs
+    },
+    data() {
+        return {
+            menuList: [
+                'News', 'Articles', 'Categories'
+            ],
+            optionActive: 0
+        }
     }
 }
 </script>
 
 <style lang="scss" scoped>
-    .border {
-        padding: 0 20px;
+img {
+    color: green;
+    height: 4rem;
+}
+.top-nav {
+    background-color: white;
+    display: flex;
+    max-height: 70px;
+    width: 100%;
+    box-shadow: 0 0 11px rgba(33,33,33,.2);
+}
+
+a {
+    display: flex;
+    color: #070606;
+    padding: 0px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+nav {
+    
+    ul {
+        display: flex;
+        list-style: none;
+        align-items: center;
+        width: 100%;
+        padding: 0px 15px;
+        justify-content: space-between;
     }
-    
-    
+}
 </style>

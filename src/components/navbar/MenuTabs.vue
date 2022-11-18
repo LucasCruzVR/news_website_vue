@@ -1,9 +1,9 @@
 <template>
     <div>
-        <ul class="navbar-nav">
-            <li v-for="menu, index in menuList" :key="index" class="nav-item">
-                <a v-if="index == optionActive" class="nav-link active-color" href="#">{{menu}}</a>
-                <a v-else class="nav-link"  href="#" @click="changeOption(index)">{{menu}}</a>
+        <ul class="">
+            <li v-for="menu, index in menuList" :key="index" class="">
+                <a v-if="index == optionActive" class="" href="#">{{menu}}</a>
+                <a v-else class=""  href="#" @click="changeOption(index)">{{menu}}</a>
             </li>
         </ul>
     </div>
@@ -31,19 +31,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.active-color {
-    color: #fff;
-}
-a:visited, a:hover {
-    color: #fff;
+
+a {
+    float: left;
+  color: #050505;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
 }
 
-li {
-    padding: 0 0.5rem;
-    a.active-color{
-        border-bottom: 2px solid #fff;
-        display: block;
-        padding: 2px 0;
+ul {
+    display: flex;
+    list-style: none;
+    width: 100%;
+    justify-content: space-between;
+    li {
+        justify-content: center;
     }
 }
 </style>

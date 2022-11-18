@@ -21,7 +21,8 @@ export default {
 
 <style lang="scss" scoped>
 .body {
-    
+    padding: 0;
+    margin: 0;
     background-color: #DCDCDC;
 }
 </style>
