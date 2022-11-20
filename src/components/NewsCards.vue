@@ -1,11 +1,12 @@
 <template>
+    
     <div class="column">
         <div class="large">
             <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp" class="" />
             <div class="bottom-left ">TAG</div>
             <div class="description">
-                <h2>text</h2>
-                <h4>subtext</h4>
+                <h3>text</h3>
+                <h6>subtext</h6>
                 <div class="created">
                     <p>lucas</p>
                     <p>20/10/2022</p>
@@ -17,7 +18,6 @@
             <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp" class="" />
             <div class="bottom-left ">TAG</div>
         </div>
-        
     </div>
 </template>
 
@@ -50,19 +50,21 @@ export default {
     display: flex;
     flex-direction: column;
     padding: 0 2rem;
+    justify-content: center;
 }
 .large {
     border-top: 2px solid green;
     position: relative;
-    width: 100%;
     margin-bottom: 1rem;
     display: flex;
+    width: 100%;
+    height: 200px;
 }
 
 .description {
     display: flex;
     flex-direction: column;
-    padding: 1.5rem 1rem;
+    padding: 0 1rem;
     h2 {
         font-weight: bold;
     }
@@ -79,6 +81,6 @@ export default {
 }
 
 img {
-    width: 25%;
+    width: 50%;
 }
 </style>

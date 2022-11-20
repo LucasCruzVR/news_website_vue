@@ -2,8 +2,9 @@
     <div>
         <ul class="">
             <li v-for="menu, index in menuList" :key="index" class="">
-                <a v-if="index == optionActive" class="" href="#">{{menu}}</a>
+                <a v-if="index == optionActive" class="active-color" href="#">{{menu}}</a>
                 <a v-else class=""  href="#" @click="changeOption(index)">{{menu}}</a>
+                <div v-if="index == optionActive" class="active"></div>
             </li>
         </ul>
     </div>
@@ -33,12 +34,12 @@ export default {
 <style lang="scss" scoped>
 
 a {
-    float: left;
-  color: #050505;
+  color: var(--black);
   text-align: center;
-  padding: 14px 16px;
+  padding: 0px 16px;
   text-decoration: none;
   font-size: 20px;
+  font-weight: 500;
 }
 
 ul {
@@ -49,5 +50,9 @@ ul {
     li {
         justify-content: center;
     }
+}
+
+.active-color {
+    color: var(--blue-dark);
 }
 </style>

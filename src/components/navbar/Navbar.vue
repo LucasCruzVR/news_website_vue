@@ -40,12 +40,12 @@ img {
     display: flex;
     max-height: 70px;
     width: 100%;
-    box-shadow: 0 0 11px rgba(33,33,33,.2);
 }
 
 a {
     display: flex;
-    color: #070606;
+    //color: #070606;
+    color: var(--black);
     padding: 0px;
     text-decoration: none;
     font-size: 17px;
