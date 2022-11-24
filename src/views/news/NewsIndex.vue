@@ -3,7 +3,6 @@
         <Navbar />
         <div class="body">
             <HighlightPosts />
-
             <div class="last-news">
                 <h2>Últimas notícias</h2>
                 <div class="news-blocks">
@@ -37,10 +36,13 @@ export default {
 
 .last-news {
     padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .news-blocks {
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
 </style>

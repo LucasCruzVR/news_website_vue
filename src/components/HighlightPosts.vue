@@ -33,7 +33,7 @@
   <!-- Add "scoped" attribute to limit CSS to this component only -->
   <style lang="scss" scoped>
   h3 {
-    margin: 40px 0 0;
+    margin: 2.5rem 0 0;
   }
   
   ul {
@@ -58,8 +58,8 @@
     
   .bottom-left-large {
     position: absolute;
-    bottom: 30px;
-    left: 30px;
+    bottom: 2rem;
+    left: 2rem;
     //background-color: #2F4F4F;
     padding: 0.2rem 0.5rem;
     background: #1c2620;
@@ -70,8 +70,8 @@
   
   .bottom-left-small {
     position: absolute;
-    bottom: 30px;
-    left: 30px;
+    bottom: 2rem;
+    left: 2rem;
     padding: 0.2rem 0.5rem;
     background: #1c2620;
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
@@ -80,8 +80,8 @@
   }
   .bottom-left-small-top {
     position: absolute;
-    top: 190px;
-    left: 30px;
+    bottom: 13rem;
+    left: 2rem;
     padding: 0.2rem 0.5rem;
     background: #1c2620;
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
@@ -93,7 +93,6 @@
     padding-bottom: 1rem;
   }
   .highlight {
-    position: relative;
     padding-top: 2rem;
     display: flex;
     justify-content: center;
@@ -103,15 +102,12 @@
     padding-bottom: 4rem;
   
     .large {
-      display: inline-block;
       position: relative;
       width: 46%;
-      float: left;
       padding-right: 1rem;
     }
     
     .small {
-      display: inline-block;
       position: relative;
       width: 22%;
       float: center;
