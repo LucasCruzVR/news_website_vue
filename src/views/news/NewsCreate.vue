@@ -9,7 +9,7 @@
                 <Select label="Category" v-model="category"/>
                 <div class="buttons">
                     <button>preview</button>
-                    <button @click="show">confirm</button>
+                    <button @click="save">confirm</button>
                 </div>
             </div>
         </div>
@@ -22,6 +22,7 @@ import Navbar from '@/components/navbar/Navbar.vue';
 import InputText from '@/components/inputs/InputText';
 import TextArea from '@/components/inputs/TextArea.vue';
 import Select from '@/components/inputs/Select';
+import * as NewsService from '../../services/NewsService.js';
 export default {
     name: 'NewsCreate',
     components: {
@@ -35,7 +36,8 @@ export default {
             title: "",
             title_description: "",
             content: "",
-            category: 0
+            category: 0,
+            loading: false
         }
     },
     methods: {
@@ -44,6 +46,21 @@ export default {
             console.log(this.title_description);
             console.log(this.content);
             console.log(this.category);
+        },
+        async save() {
+            try {
+                this.loading = true;
+                const data = await NewsService.publish(
+                    this.title,
+                    this.title_description,
+                    this.content,
+                    this.category
+                );
+                console.log(data);
+                this.loading = true;
+            } catch(err) {
+                console.log(err)
+            }
         }
     }
 }
