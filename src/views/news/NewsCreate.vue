@@ -3,10 +3,10 @@
         <Navbar />
         <div class="create-news">
             <InputText label="Title" v-model="title"/>
-            <InputText label="Title Description"/>
-            <TextArea label="Content"/>
+            <InputText label="Title Description" v-model="title_description"/>
+            <TextArea label="Content" v-model="content"/>
             <div class="select-buttons">
-                <Select label="Category"/>
+                <Select label="Category" v-model="category"/>
                 <div class="buttons">
                     <button>preview</button>
                     <button @click="show">confirm</button>
@@ -41,6 +41,9 @@ export default {
     methods: {
         show() {
             console.log(this.title);
+            console.log(this.title_description);
+            console.log(this.content);
+            console.log(this.category);
         }
     }
 }

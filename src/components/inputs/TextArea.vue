@@ -1,7 +1,7 @@
 <template>
     <div class="item-form">
         <label>{{ label }}</label>
-        <textarea></textarea>
+        <textarea @input="handleInput"></textarea>
     </div>
 </template>
 <script>
@@ -12,6 +12,11 @@ export default {
     },
     data(){
         return{
+        }
+    },
+    methods: {
+        handleInput(input) {
+            this.$emit('input', input.target.value)
         }
     }
 }

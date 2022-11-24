@@ -9,11 +9,11 @@ export default {
     name: 'InputText',
     props: {
         label: String,
-        title: String
+        inputValue: String
     },
     data(){
         return{
-            title1: this.title
+            title1: this.inputValue
         }
     },
     methods: {

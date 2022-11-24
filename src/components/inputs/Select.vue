@@ -1,7 +1,7 @@
 <template>
     <div class="item-form">
         <label>{{ label }}</label>
-        <select>
+        <select @click="categorySelected">
             <option value="0"></option>
             <option value="1">Article</option>
             <option value="2">Tech</option>
@@ -13,9 +13,16 @@ export default {
     name: 'SelectOption',
     props: {
         label: String,
+        inputValue: Number
     },
     data(){
         return{
+            category: 0
+        }
+    },
+    methods: {
+        categorySelected(input) {
+            this.$emit('input', input.target.value)
         }
     }
 }
