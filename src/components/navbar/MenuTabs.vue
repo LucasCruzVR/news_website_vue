@@ -16,7 +16,7 @@ export default {
     data() {
         return {
             menuList: [
-                'News', 'Articles', 'Categories'
+                'News', 'Articles', 'Categories', 'Print'
             ],
             optionActive: 0
         }
@@ -53,6 +53,6 @@ ul {
 }
 
 .active-color {
-    color: var(--blue-dark);
+    color: var(--blue-extradark);
 }
 </style>

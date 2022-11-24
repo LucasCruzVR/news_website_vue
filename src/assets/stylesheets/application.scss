@@ -19,16 +19,16 @@ h1{
 }
 h2{
     font-family: 'Ubuntu-Bold';
-    font-size: 36px;
+    font-size: 24px;
     font-weight: 700;
-    line-height: 40px ;
+    line-height: 20px ;
 
 }
 h3{
     font-family: 'Ubuntu-Bold';
     font-size: 18px;
     font-weight: 700;
-    line-height: 24px ;
+    line-height: 10px ;
     
 }
 h4{
@@ -69,7 +69,7 @@ label{
     letter-spacing: 1px;
 }
 input[type= text]{
-    height: 2.5rem;
+    height: 2rem;
     border: solid #dedede .15rem;
     border-radius: .5rem;
     padding: 0 1rem;
@@ -79,5 +79,10 @@ input[type= text]{
 }
 input[type= text]:focus{
     outline: none;
-    border: solid var(--orange) .15rem;
+    border: solid var(--blue-light) .15rem;
+}
+
+select {
+    font-family: 'Lato';
+    color: var(--black-light);
 }

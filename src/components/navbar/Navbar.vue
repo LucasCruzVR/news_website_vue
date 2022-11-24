@@ -7,7 +7,7 @@
                 <a v-else href="#">{{ menu }}</a>
             </li>-->
             <MenuTabs/>
-            <a>foto pefil</a>
+            <img class="profile" src="../../assets/images/user-profile.svg" alt="">
         </ul>
     </nav>
 </template>
@@ -35,8 +35,14 @@ img {
     color: green;
     height: 4rem;
 }
+
+.profile {
+    width: 50px;
+    height: 50px;
+}
+
 .top-nav {
-    background-color: white;
+    background-color: var(--white);
     display: flex;
     max-height: 70px;
     width: 100%;

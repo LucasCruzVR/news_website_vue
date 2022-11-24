@@ -5,8 +5,8 @@
             <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp" class="" />
             <div class="bottom-left ">TAG</div>
             <div class="description">
-                <h3>text</h3>
-                <h6>subtext</h6>
+                <h2>text</h2>
+                <h4>subtext</h4>
                 <div class="created">
                     <p>lucas</p>
                     <p>20/10/2022</p>
@@ -47,13 +47,13 @@ export default {
     border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 .column {
-    display: flex;
-    flex-direction: column;
-    padding: 0 2rem;
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    padding: 0 rem;
     justify-content: center;
 }
 .large {
-    border-top: 2px solid green;
     position: relative;
     margin-bottom: 1rem;
     display: flex;
@@ -71,7 +71,7 @@ export default {
     .created{
         margin-top: auto;
         p {
-            font-size: smaller;
+            font-size: 12px;
             margin: 0;
             //align-self: flex-end;
             
@@ -81,6 +81,6 @@ export default {
 }
 
 img {
-    width: 50%;
+    width: 40%;
 }
 </style>

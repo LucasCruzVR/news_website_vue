@@ -3,10 +3,12 @@
         <Navbar />
         <div class="body">
             <HighlightPosts />
-            <h2>Últimas notícias</h2>
-            <div class="news-blocks">
-                <NewsCards />
-                <NewsCards />
+
+            <div class="last-news">
+                <h2>Últimas notícias</h2>
+                <div class="news-blocks">
+                    <NewsCards />
+                </div>
             </div>
         </div>
     </div>
@@ -31,8 +33,12 @@ export default {
 .body {
     padding: 0;
     margin: 0;
-    background-color: #e7e7e7;
 }
+
+.last-news {
+    padding: 0 2rem;
+}
+
 .news-blocks {
     display: flex;
     flex-direction: row;

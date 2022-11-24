@@ -11,4 +11,7 @@ export default {
 </script>
 
 <style lang="scss">
+  #app {
+    background-color: var(--white-dark);
+  }
 </style>
