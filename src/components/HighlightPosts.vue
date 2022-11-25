@@ -1,24 +1,28 @@
 <template>
     <div class="highlight">
-      <div class="large">
-        <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp" class="high-image" />
-        <div class="bottom-left-large">#TAG</div>
+      <div class="item h-2 w-2">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp" class="" />
+        <div class="tag">#TAG</div>
       </div>
   
-      <div class="small">
+      <div class="item h-1 w-1">
         <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp" class="" />
-        <div class="bottom-left-small-top">#TAG</div>
-        <div class="pad-between"></div>
-        <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp" class="" />
-        <div class="bottom-left-small">#TAG</div>
+        <div class="tag">#TAG</div>
       </div>
   
-      <div class="small">
+      <div class="item h-1 w-1">
         <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp" class="" />
-        <div class="bottom-left-small-top">#TAG</div>
-        <div class="pad-between"></div>
+        <div class="tag">#TAG</div>
+      </div>
+
+      <div class="item h-1 w-1">
         <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp" class="" />
-        <div class="bottom-left-small">#TAG</div>
+        <div class="tag">#TAG</div>
+      </div>
+
+      <div class="item h-1 w-1">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp" class="" />
+        <div class="tag">#TAG</div>
       </div>
     </div>
   </template>
@@ -31,95 +35,50 @@
   
   
   <!-- Add "scoped" attribute to limit CSS to this component only -->
-  <style lang="scss" scoped>
-  h3 {
-    margin: 2.5rem 0 0;
-  }
-  
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  li {
-    display: inline-block;
-    margin: 0 10px;
-  }
-  
-  a {
-    color: #42b983;
-  }
-  
-  * {
-    box-sizing: border-box;
-  }
-  
-  
+<style lang="scss" scoped>
+* {
+  box-sizing: border-box;
+}
+
+.highlight {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 12rem;
+  gap: 0.5rem;
+  .item {
+    position: relative;
     
-  .bottom-left-large {
-    position: absolute;
-    bottom: 2rem;
-    left: 2rem;
-    //background-color: #2F4F4F;
-    padding: 0.2rem 0.5rem;
-    background: #1c2620;
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
-  }
-  
-  .bottom-left-small {
-    position: absolute;
-    bottom: 2rem;
-    left: 2rem;
-    padding: 0.2rem 0.5rem;
-    background: #1c2620;
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
-  }
-  .bottom-left-small-top {
-    position: absolute;
-    bottom: 13rem;
-    left: 2rem;
-    padding: 0.2rem 0.5rem;
-    background: #1c2620;
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
-  }
-  
-  .pad-between {
-    padding-bottom: 1rem;
-  }
-  .highlight {
-    padding-top: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-    padding-bottom: 4rem;
-  
-    .large {
-      position: relative;
-      width: 46%;
-      padding-right: 1rem;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 0.8rem;
     }
-    
-    .small {
-      position: relative;
-      width: 22%;
-      float: center;
-      padding: 1rem ;
+    .tag {
+      position: absolute;
+      background-color: rgba(0, 50, 100, 0.5);
+      border-radius: 0.8rem;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      color: var(--white);
+      padding: 0.7rem;
+      font-size: 1rem;
     }
   }
-  
-  img {
-    width: 100%;
-    border-radius: 2%;
-  }
-  
-  
-  </style>
+}
+
+.h-1 {
+  grid-row: span 1;
+}
+.h-2 {
+  grid-row: span 2;
+}
+.w-1 {
+  grid-column: span 1;
+}
+.w-2 {
+  grid-column: span 2;
+}
+</style>
   

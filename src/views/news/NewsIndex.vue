@@ -30,12 +30,12 @@ export default {
 
 <style lang="scss" scoped>
 .body {
-    padding: 0;
+    padding: 1rem 3rem;
     margin: 0;
 }
 
 .last-news {
-    padding: 0 2rem;
+    padding-top: 2rem;
     display: flex;
     flex-direction: column;
 }
