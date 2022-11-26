@@ -5,8 +5,8 @@
             <HighlightPosts />
             <div class="last-news">
                 <h2>Últimas notícias</h2>
-                <div class="news-blocks">
-                    <NewsCards />
+                <div v-if="!loading" class="news-blocks">
+                    <NewsCards :posts="newsInfo"/>
                 </div>
             </div>
         </div>
@@ -18,12 +18,34 @@
 import HighlightPosts from '@/components/HighlightPosts.vue';
 import NewsCards from '@/components/NewsCards.vue';
 import Navbar from '@/components/navbar/Navbar.vue';
+import * as NewsService from '@/services/NewsService';
 export default {
     name: "NewsIndex",
     components: {
         HighlightPosts,
         NewsCards,
         Navbar
+    },
+    data() {
+        return {
+            newsInfo: [],
+            loading: true
+        }
+    },
+    created() {
+        this.getAllNews();
+    },
+    methods: {
+        async getAllNews() {
+            try {
+                const {data} = await NewsService.getAllPublished();
+                this.newsInfo = data.data;
+                this.$set(this.newsInfo, data.data)
+                this.loading = false;
+            } catch(err) {
+                console.log(err);
+            }
+        }
     }
 }
 </script>
@@ -42,7 +64,5 @@ export default {
 
 .news-blocks {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
 }
 </style>

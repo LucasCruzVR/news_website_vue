@@ -43,7 +43,7 @@
 .highlight {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: 12rem;
+  grid-auto-rows: 9rem;
   gap: 0.5rem;
   .item {
     position: relative;

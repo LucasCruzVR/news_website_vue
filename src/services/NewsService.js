@@ -13,3 +13,10 @@ export async function publish(title, title_description, content, category) {
     );
     return {data}
 }
+
+export async function getAllPublished() {
+    const data = await axios.get(
+        `${process.env.VUE_APP_BASE_API_URL}/publications`
+    );
+    return {data}
+}
