@@ -1,15 +1,13 @@
 import axios from "axios"
 
 
-export async function publish(title, title_description, content, category) {
+export async function publish(form) {
+    console.log(form)
     const data = await axios.post(
-        `${process.env.VUE_APP_BASE_API_URL}/publications`,
+        `${process.env.VUE_APP_BASE_API_URL}/publications`, form,
         {
-            title,
-            title_description,
-            content,
-            category_id: category,
-        },
+            headers: { "Content-Type": "multipart/form-data" },
+        }
     );
     return {data}
 }

@@ -7,6 +7,7 @@
             <TextArea label="Content" v-model="content"/>
             <div class="select-buttons">
                 <Select label="Category" v-model="category"/>
+                <input type="file" @input="selectedImage">
                 <div class="buttons">
                     <button>preview</button>
                     <button @click="save">confirm</button>
@@ -37,24 +38,24 @@ export default {
             title_description: "",
             content: "",
             category: 0,
-            loading: false
+            loading: false,
+            image: null
         }
     },
     methods: {
-        show() {
-            console.log(this.title);
-            console.log(this.title_description);
-            console.log(this.content);
-            console.log(this.category);
+        selectedImage(event) {
+            this.image = event.target.files[0];
+            console.log(event)
         },
         async save() {
             try {
                 this.loading = true;
-                const data = await NewsService.publish(
-                    this.title,
-                    this.title_description,
-                    this.content,
-                    this.category
+                var form = new FormData();
+                form.append("title", this.title);
+                form.append("title_description", this.title_description);
+                form.append("category_id", this.category);
+                form.append("image_file", this.image)
+                const data = await NewsService.publish(form
                 );
                 console.log(data);
                 this.loading = true;
