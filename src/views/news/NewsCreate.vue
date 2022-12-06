@@ -1,12 +1,11 @@
 <template>
     <div class="body">
-        <Navbar />
         <div class="create-news">
-            <InputText label="Title" v-model="title"/>
-            <InputText label="Title Description" v-model="title_description"/>
-            <TextArea label="Content" v-model="content"/>
+            <InputText label="Title" v-model="title" />
+            <InputText label="Title Description" v-model="title_description" />
+            <ContentText label="Content" v-model="content" />
             <div class="select-buttons">
-                <Select label="Category" v-model="category"/>
+                <Select label="Category" v-model="category" />
                 <input type="file" @input="selectedImage">
                 <div class="buttons">
                     <button>preview</button>
@@ -15,21 +14,19 @@
             </div>
         </div>
     </div>
-    
+
 </template>
 
 <script>
-import Navbar from '@/components/navbar/Navbar.vue';
 import InputText from '@/components/inputs/InputText';
-import TextArea from '@/components/inputs/TextArea.vue';
+import ContentText from '@/components/inputs/TextQuillEditor.vue';
 import Select from '@/components/inputs/Select';
 import * as NewsService from '../../services/NewsService.js';
 export default {
     name: 'NewsCreate',
     components: {
-        Navbar,
         InputText,
-        TextArea,
+        ContentText,
         Select
     },
     data() {
@@ -54,12 +51,12 @@ export default {
                 form.append("title", this.title);
                 form.append("title_description", this.title_description);
                 form.append("category_id", this.category);
-                form.append("image_file", this.image)
+                form.append("content", this.content);
                 const data = await NewsService.publish(form
                 );
                 console.log(data);
                 this.loading = true;
-            } catch(err) {
+            } catch (err) {
                 console.log(err)
             }
         }
@@ -72,27 +69,30 @@ export default {
     height: 100%;
     background-color: var(--white-light);
 }
+
 .create-news {
     padding: 2rem;
     background-color: var(--white-dark);
     margin: 2rem 10rem 0 10rem;
     border-radius: 10px;
 }
+
 .select-buttons {
     display: flex;
     width: 100%;
     justify-content: center;
-    
+
     .buttons {
         padding-top: 0.75rem;
         justify-content: flex-end;
         align-content: center;
     }
 }
+
 button {
     margin: 0 0.75rem;
     color: var(--black);
-    font-family: 'Ubuntu-Bold' ;
+    font-family: 'Ubuntu-Bold';
     height: 48px;
     padding: 0 4rem;
     border-radius: .25rem;
@@ -107,6 +107,7 @@ button {
     transition: ease-in-out .15s;
     cursor: pointer;
 }
+
 input {
     padding-top: 2rem;
     padding-left: 4rem;

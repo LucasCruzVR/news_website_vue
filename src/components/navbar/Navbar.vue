@@ -1,12 +1,12 @@
 <template>
     <nav class="top-nav">
         <ul>
-            <img class="logo" src="../../assets/images/icons8-news.svg"/>
+            <img class="logo" src="../../assets/images/icons8-news.svg" />
             <!--<li v-for="menu, index in menuList" :key="index">
                 <a v-if="index == optionActive" href="#">{{ menu }}</a>
                 <a v-else href="#">{{ menu }}</a>
             </li>-->
-            <MenuTabs/>
+            <MenuTabs />
             <img class="profile" src="../../assets/images/user-profile.svg" alt="">
         </ul>
     </nav>
@@ -33,19 +33,24 @@ export default {
 <style lang="scss" scoped>
 img {
     color: green;
-    height: 4rem;
+    height: 3rem;
 }
 
 .profile {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
 }
 
 .top-nav {
     background-color: var(--white);
-    display: flex;
-    max-height: 70px;
-    width: 100%;
+    overflow: hidden;
+    position: fixed;    /* Set the navbar to fixed position */
+    justify-content: center;
+    align-items: center;
+    top: 0;    /* Position the navbar at the top of the page */
+    width: 100%;    /* Full width */
+    height: 70px;
+    z-index: 99;
 }
 
 a {
@@ -58,14 +63,13 @@ a {
 }
 
 nav {
-    
+
     ul {
         display: flex;
         list-style: none;
         align-items: center;
-        width: 100%;
-        padding: 0px 15px;
         justify-content: space-between;
+        padding-right: 2rem;
     }
 }
 </style>

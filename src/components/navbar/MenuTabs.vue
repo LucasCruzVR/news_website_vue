@@ -16,7 +16,7 @@ export default {
     data() {
         return {
             menuList: [
-                'News', 'Articles', 'Categories', 'Print'
+                'News', 'Articles', 'Categories', 'Post'
             ],
             optionActive: 0
         }

@@ -1,22 +1,32 @@
 <template>
     <div class="item-form">
         <label>{{ label }}</label>
-        <textarea @input="handleInput"></textarea>
+        <quill-editor class="editor"
+            v-model="content"
+            @input="handleInput"
+            ref="refQuillEditor"
+        />
     </div>
 </template>
 <script>
+ import 'quill/dist/quill.snow.css'
 export default {
-    name: 'TextArea',
+    name: 'TextQuillEditor',
     props: {
         label: String,
+        textContent: String
+    },
+    components: {
     },
     data(){
         return{
+            content: this.textContent,
         }
     },
     methods: {
         handleInput(input) {
-            this.$emit('input', input.target.value)
+            console.log(input)
+            this.$emit('input', input)
         }
     }
 }
@@ -37,5 +47,8 @@ textarea {
     resize: none;
     height: 400px;
     border-radius: 5px;
+}
+.editor {
+    background-color: var(--white-light);
 }
 </style>

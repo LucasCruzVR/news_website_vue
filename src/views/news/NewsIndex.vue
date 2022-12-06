@@ -1,6 +1,5 @@
 <template>
     <div>
-        <Navbar />
         <div class="body">
             <HighlightPosts />
             <div class="last-news">
@@ -17,14 +16,12 @@
 <script>
 import HighlightPosts from '@/components/HighlightPosts.vue';
 import NewsCards from '@/components/NewsCards.vue';
-import Navbar from '@/components/navbar/Navbar.vue';
 import * as NewsService from '@/services/NewsService';
 export default {
     name: "NewsIndex",
     components: {
         HighlightPosts,
-        NewsCards,
-        Navbar
+        NewsCards
     },
     data() {
         return {
