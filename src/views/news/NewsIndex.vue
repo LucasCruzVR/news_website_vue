@@ -4,7 +4,7 @@
         <div class="body">
             <HighlightPosts />
             <div class="last-news">
-                <h2>Últimas notícias</h2>
+                <h2>Last News</h2>
                 <div v-if="!loading" class="news-blocks">
                     <NewsCards :posts="newsInfo"/>
                 </div>

@@ -81,7 +81,7 @@ export default {
 .select-buttons {
     display: flex;
     width: 100%;
-    justify-content: space-around;
+    justify-content: center;
     
     .buttons {
         padding-top: 0.75rem;
@@ -94,7 +94,7 @@ button {
     color: var(--black);
     font-family: 'Ubuntu-Bold' ;
     height: 48px;
-    padding: 0 32px;
+    padding: 0 4rem;
     border-radius: .25rem;
     background: linear-gradient(to left bottom, var(--blue), var(--blue-light));
     text-align: center;
@@ -106,5 +106,10 @@ button {
     box-shadow: 0px 2px 10px rgba(252, 176, 105, 0.5);
     transition: ease-in-out .15s;
     cursor: pointer;
+}
+input {
+    padding-top: 2rem;
+    padding-left: 4rem;
+    margin-left: 0.75rem;
 }
 </style>
