@@ -1,26 +1,38 @@
 <template>
     <div class="item-form">
         <label>{{ label }}</label>
-        <select @click="categorySelected">
-            <option value="0"></option>
-            <option value="1">Article</option>
-            <option value="2">Tech</option>
-        </select >
+        <select v-model="selected" @click="categorySelected">
+            <option v-for="item in categories" :value="item" :key="item.id">
+                {{ item.name }}
+            </option>
+        </select>
     </div>
 </template>
 <script>
+import * as CategoriesService from '../../services/CategoriesService.js'
 export default {
     name: 'SelectOption',
     props: {
         label: String,
         inputValue: Number
     },
-    data(){
-        return{
-            category: 0
+    data() {
+        return {
+            selected: 0,
+            categories: []
         }
     },
+    created: function () {
+        this.getCategories();
+    },
     methods: {
+        async getCategories() {
+            const {data} = await CategoriesService.getAllCategories();
+            this.categories = data.data;
+            this.selected = this.categories.find(c => c.id == this.selected);
+            console.log(this.categories)
+            console.log(this.selected)
+        },
         categorySelected(input) {
             this.$emit('input', input.target.value)
         }
@@ -35,6 +47,7 @@ export default {
     flex-direction: column;
     padding-bottom: 2rem;
 }
+
 select {
     width: 100%;
     overflow: hidden;
@@ -46,6 +59,4 @@ select {
     border-radius: 5px;
     height: 34px;
 }
-
-
 </style>

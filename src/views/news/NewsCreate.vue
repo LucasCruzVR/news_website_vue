@@ -8,8 +8,9 @@
                 <Select label="Category" v-model="category" />
                 <input type="file" @input="selectedImage">
                 <div class="buttons">
-                    <button>preview</button>
-                    <button @click="save">confirm</button>
+                    <button>Preview</button>
+                    <button v-if="loading" @click="save"><img class="button-animation" src="@/assets/images/chart-donut.png"></button>
+                    <button v-else @click="save">Save</button>
                 </div>
             </div>
         </div>
@@ -22,6 +23,7 @@ import InputText from '@/components/inputs/InputText';
 import ContentText from '@/components/inputs/TextQuillEditor.vue';
 import Select from '@/components/inputs/Select';
 import * as NewsService from '../../services/NewsService.js';
+
 export default {
     name: 'NewsCreate',
     components: {
@@ -35,8 +37,8 @@ export default {
             title_description: "",
             content: "",
             category: 0,
-            loading: false,
-            image: null
+            loading: true,
+            image: null,
         }
     },
     methods: {
@@ -68,12 +70,14 @@ export default {
 .body {
     height: 100%;
     background-color: var(--white-light);
+    padding: 2rem 3rem;
+    margin: 0;
 }
 
 .create-news {
-    padding: 2rem;
+    padding: 1rem;
     background-color: var(--white-dark);
-    margin: 2rem 10rem 0 10rem;
+    margin: 0 10rem 0 10rem;
     border-radius: 10px;
 }
 
@@ -86,6 +90,7 @@ export default {
         padding-top: 0.75rem;
         justify-content: flex-end;
         align-content: center;
+        display: flex;
     }
 }
 
@@ -112,5 +117,14 @@ input {
     padding-top: 2rem;
     padding-left: 4rem;
     margin-left: 0.75rem;
+}
+.button-animation {
+    animation: is-rotating 1s infinite;
+}
+
+@keyframes is-rotating {
+    to {
+        transform: rotate(1turn);
+    }
 }
 </style>
