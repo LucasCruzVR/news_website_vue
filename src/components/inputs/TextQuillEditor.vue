@@ -25,7 +25,6 @@ export default {
     },
     methods: {
         handleInput(input) {
-            console.log(input)
             this.$emit('input', input)
         }
     }

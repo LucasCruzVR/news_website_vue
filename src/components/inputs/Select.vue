@@ -30,8 +30,6 @@ export default {
             const {data} = await CategoriesService.getAllCategories();
             this.categories = data.data;
             this.selected = this.categories.find(c => c.id == this.selected);
-            console.log(this.categories)
-            console.log(this.selected)
         },
         categorySelected(input) {
             this.$emit('input', input.target.value)

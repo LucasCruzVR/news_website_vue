@@ -44,7 +44,6 @@ export default {
     methods: {
         selectedImage(event) {
             this.image = event.target.files[0];
-            console.log(event)
         },
         async save() {
             try {
@@ -54,9 +53,8 @@ export default {
                 form.append("title_description", this.title_description);
                 form.append("category_id", this.category);
                 form.append("content", this.content);
-                const data = await NewsService.publish(form
+                await NewsService.publish(form
                 );
-                console.log(data);
                 this.loading = true;
             } catch (err) {
                 console.log(err)

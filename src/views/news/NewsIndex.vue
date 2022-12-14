@@ -4,8 +4,11 @@
             <HighlightPosts />
             <div class="last-news">
                 <h2>Last News</h2>
-                <div v-if="!loading" class="news-blocks">
+                <div v-if="!loading && newsInfo.length" class="news-blocks">
                     <NewsCards :posts="newsInfo"/>
+                </div>
+                <div v-if="!newsInfo.length" class="news-blocks">
+                    There is no news to be shown
                 </div>
             </div>
         </div>
