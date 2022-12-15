@@ -1,35 +1,40 @@
 <template>
     <div class="highlight">
       <div class="item h-2 w-2">
-        <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp" class="" />
-        <div class="tag">#TAG</div>
+        <img src="@/assets/images/empty-image.png" class="" />
+        <span class="tag">#Most Viewed</span>
       </div>
   
       <div class="item h-1 w-1">
-        <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp" class="" />
-        <div class="tag">#TAG</div>
+        <img src="@/assets/images/empty-image.png" class="" />
+        <div class="tag">#Last Article</div>
       </div>
   
       <div class="item h-1 w-1">
-        <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp" class="" />
-        <div class="tag">#TAG</div>
+        <img src="@/assets/images/empty-image.png" class="" />
+        <div class="tag">#Game</div>
       </div>
 
       <div class="item h-1 w-1">
-        <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp" class="" />
-        <div class="tag">#TAG</div>
+        <img src="@/assets/images/empty-image.png" class="" />
+        <div class="tag">#Technology</div>
       </div>
 
       <div class="item h-1 w-1">
-        <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp" class="" />
-        <div class="tag">#TAG</div>
+        <img src="@/assets/images/empty-image.png" class="" />
+        <div class="tag">#World</div>
       </div>
     </div>
   </template>
   
   <script>
   export default {
-    name: 'HighlightPosts'
+    name: 'HighlightPosts',
+    data() {
+      return {
+        highlightImages: ['Most Viewed', 'Article', 'Game', 'Technology', 'World']
+      }
+    }
   }
   </script>
   

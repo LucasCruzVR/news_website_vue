@@ -17,3 +17,10 @@ export async function getAllPublished() {
     );
     return {data}
 }
+
+export async function getPublished(id) {
+    const {data} = await axios.get(
+        `${process.env.VUE_APP_BASE_API_URL}/publications/${id}`
+    );
+    return {data}
+}

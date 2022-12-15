@@ -3,6 +3,7 @@ import * as routesName from "./routesName";
 import NewsIndex from '../views/news/NewsIndex.vue';
 import Vue from "vue";
 import NewsCreate from "@/views/news/NewsCreate.vue";
+import NewsShow from '@/views/news/NewsShow';
 
 Vue.use(VueRouter)
 const router = new VueRouter({
@@ -20,6 +21,11 @@ const router = new VueRouter({
             path: "/news/create",
             component: NewsCreate,
             name: routesName.NEWS_CREATE
+        },
+        {
+            path: "/news/show/:id",
+            component: NewsShow,
+            name: routesName.NEWS_SHOW
         }
     ],
     mode: 'history',

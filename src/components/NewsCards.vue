@@ -8,7 +8,7 @@
                 </div>
 
                 <div class="description">
-                    <h2>{{ post.title }}</h2>
+                    <h2 @click="newsDetails(post.id)">{{ post.title }}</h2>
                     <h4>{{ post.title_description }}</h4>
                     <div class="created">
                         <p>lucas</p>
@@ -35,12 +35,16 @@ export default {
             name: "#TAG"
         }
     },
-    created() {
+    methods: {
+        newsDetails(id) {
+            console.log('entrei')
+            this.$router.push(`news/show/${id}`)
+        }
     },
     filters: {
         formatDate(value) {
             return moment(String(value)).format('MM/DD/YYYY hh:mm');
-        }
+        },
     }
 }
 </script>

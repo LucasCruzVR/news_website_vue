@@ -18,9 +18,6 @@ export default {
 </script>
 
 <style lang="scss">
-  #app {
-    background-color: var(--white-dark);
-  }
   .body {
     padding-top: 70px;
   }

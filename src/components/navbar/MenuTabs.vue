@@ -26,7 +26,6 @@ export default {
         changeOption(route, index) {
             this.optionActive = route
             this.$emit("changeOption", index);
-            console.log(this.optionActive)
         }
     }
 }

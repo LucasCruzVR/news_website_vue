@@ -52,7 +52,7 @@ export default {
 
 <style lang="scss" scoped>
 .body {
-    padding: 1rem 3rem;
+    padding: 1rem 5rem;
     margin: 0;
 }
 

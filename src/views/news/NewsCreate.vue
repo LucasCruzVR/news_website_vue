@@ -37,7 +37,7 @@ export default {
             title_description: "",
             content: "",
             category: 0,
-            loading: true,
+            loading: false,
             image: null,
         }
     },
@@ -55,7 +55,7 @@ export default {
                 form.append("content", this.content);
                 await NewsService.publish(form
                 );
-                this.loading = true;
+                this.loading = false;
             } catch (err) {
                 console.log(err)
             }
