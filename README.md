@@ -1,4 +1,4 @@
-# site_noticias_vue
+# news_website
 
 ## Project setup
 ```

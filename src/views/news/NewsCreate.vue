@@ -1,16 +1,19 @@
 <template>
     <div class="body">
         <div class="create-news">
-            <InputText label="Title" v-model="title" />
-            <InputText label="Title Description" v-model="title_description" />
+            <div class="inputs">
+                <InputText label="Title" v-model="title" />
+                <InputText label="Title Description" v-model="title_description" />
+            </div>
             <ContentText label="Content" v-model="content" />
             <div class="select-buttons">
                 <Select label="Category" v-model="category" />
                 <input type="file" @input="selectedImage">
                 <div class="buttons">
-                    <button>Preview</button>
-                    <button v-if="loading" @click="save"><img class="button-animation" src="@/assets/images/chart-donut.png"></button>
-                    <button v-else @click="save">Save</button>
+                    <button class="secondary-button">Preview</button>
+                    <button class="primary-button" v-if="loading" @click="save"><img class="button-animation"
+                            src="@/assets/images/chart-donut.png"></button>
+                    <button class="primary-button" v-else @click="save">Save</button>
                 </div>
             </div>
         </div>
@@ -79,6 +82,12 @@ export default {
     border-radius: 10px;
 }
 
+.inputs {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    padding: 0rem 2rem;
+}
 .select-buttons {
     display: flex;
     width: 100%;
@@ -96,10 +105,9 @@ button {
     margin: 0 0.75rem;
     color: var(--black);
     font-family: 'Ubuntu-Bold';
-    height: 48px;
+    height: 3rem;
     padding: 0 4rem;
     border-radius: .25rem;
-    background: linear-gradient(to left bottom, var(--blue), var(--blue-light));
     text-align: center;
     font-size: 12px;
     font-weight: 100;
@@ -111,11 +119,21 @@ button {
     cursor: pointer;
 }
 
+.primary-button {
+    background: linear-gradient(to left bottom, var(--blue-dark), var(--blue-light));
+}
+
+.secondary-button {
+    background: white;
+    border: 2px solid var(--blue);
+    color: var(--blue-dark);
+}
+
 input {
     padding-top: 2rem;
     padding-left: 4rem;
-    margin-left: 0.75rem;
 }
+
 .button-animation {
     animation: is-rotating 1s infinite;
 }

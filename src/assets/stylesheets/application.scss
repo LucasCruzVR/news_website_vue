@@ -85,3 +85,16 @@ select {
     font-family: 'Lato';
     color: var(--black-light);
 }
+
+button {
+    color: var(--black);
+    font-family: 'Ubuntu-Bold';
+    background: linear-gradient(to left bottom, var(--blue), var(--blue-light));
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    border: none;
+    box-shadow: 0px 2px 10px rgba(252, 176, 105, 0.5);
+    transition: ease-in-out .15s;
+    cursor: pointer;
+}

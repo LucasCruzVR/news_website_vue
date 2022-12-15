@@ -29,11 +29,12 @@ export default {
     display: flex;
     gap: .5rem;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     padding-bottom: 2rem;
 }
 input {
-    width: 70%;
+    width: 30rem;
+}
+label {
+    padding-left: 0.2rem;
 }
 </style>

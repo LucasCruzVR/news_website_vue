@@ -1,4 +1,4 @@
-import { NEWS_INDEX, NEWS_CREATE } from "./routesName"
+import { NEWS_INDEX, NEWS_CREATE, CATEGORIES_INDEX } from "./routesName"
 const links = [
     {
         name: 'News',
@@ -6,7 +6,7 @@ const links = [
     },
     {
         name: 'Categories',
-        route: NEWS_INDEX
+        route: CATEGORIES_INDEX
     },
     {
         name: 'Articles',

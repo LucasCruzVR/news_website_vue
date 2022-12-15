@@ -4,6 +4,7 @@ import NewsIndex from '../views/news/NewsIndex.vue';
 import Vue from "vue";
 import NewsCreate from "@/views/news/NewsCreate.vue";
 import NewsShow from '@/views/news/NewsShow';
+import CategoriesIndex from '@/views/categories/CategoriesIndex';
 
 Vue.use(VueRouter)
 const router = new VueRouter({
@@ -26,6 +27,11 @@ const router = new VueRouter({
             path: "/news/show/:id",
             component: NewsShow,
             name: routesName.NEWS_SHOW
+        },
+        {
+            path: "/news/categories",
+            component: CategoriesIndex,
+            name: routesName.CATEGORIES_INDEX
         }
     ],
     mode: 'history',
