@@ -65,6 +65,9 @@ export default {
     button {
         width: 200px;
         height: 50px;
+        background: white;
+        color: var(--blue);
+        border: 2px solid var(--blue);
     }
 }
 
@@ -87,8 +90,7 @@ tr:nth-child(even) {
     background-color: var(--blue-light);
 }
 
-.tr-titles {
-    color: var(--white-light);
-    background-color: var(--green-light);
+tr {
+    background-color: var(--green-blue);
 }
 </style>

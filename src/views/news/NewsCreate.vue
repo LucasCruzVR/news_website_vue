@@ -1,5 +1,6 @@
 <template>
     <div class="body">
+        <h1>Share a Post</h1>
         <div class="create-news">
             <div class="inputs">
                 <InputText label="Title" v-model="title" />
@@ -73,12 +74,16 @@ export default {
     background-color: var(--white-light);
     padding: 2rem 3rem;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .create-news {
     padding: 1rem;
     background-color: var(--white-dark);
-    margin: 0 10rem 0 10rem;
+    width: auto;
     border-radius: 10px;
 }
 
@@ -87,6 +92,7 @@ export default {
     flex-direction: row;
     gap: 1rem;
     padding: 0rem 2rem;
+    justify-content: center;
 }
 .select-buttons {
     display: flex;
