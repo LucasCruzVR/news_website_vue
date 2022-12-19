@@ -11,6 +11,7 @@
 
 <script>
 import SaveButton from "@/components/SaveButton";
+import {createCategory} from "@/services/CategoriesService";
 export default {
   name: "NewCategoryModal",
   data() {
@@ -22,8 +23,15 @@ export default {
     SaveButton,
   },
   methods: {
-    save() {
+    async save() {
+      try {
       this.$emit('save')
+      const data = await createCategory(this.newCategory);
+      this.$router.go(this.$router.currentRoute);
+      console.log(data);
+      } catch (err) {
+        console.log(err);
+      }
     },
   },
 };

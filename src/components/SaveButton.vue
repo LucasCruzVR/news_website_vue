@@ -1,5 +1,5 @@
 <template>
-    <button @click.prevent="save">Save</button>
+    <button type="submit" @click.prevent="save">Save</button>
 </template>
 
 <script>

@@ -18,26 +18,26 @@
         <td>delete</td>
       </tr>
     </table>
-    <NewCategoryModal v-if="modal" @save="newCategory"/>
+    <NewCategoryModal v-if="modal" @save="newCategory" />
   </div>
 </template>
 
 <script>
 import { getAllCategories } from "@/services/CategoriesService";
-import NewCategoryModal from '@/components/NewCategoryModal'
+import NewCategoryModal from "@/components/NewCategoryModal";
 export default {
   name: "CategoriesIndex",
   created() {
     this.getCategories();
   },
   components: {
-    NewCategoryModal
+    NewCategoryModal,
   },
   data() {
     return {
       loading: false,
       categories: [],
-      modal: false
+      modal: false,
     };
   },
   methods: {
@@ -52,15 +52,27 @@ export default {
       }
     },
     newCategory() {
-        this.modal = !this.modal;
-    }
+      this.modal = !this.modal;
+    },
+    compare(a, b) {
+      console.log(a.name)
+      console.log(b.name)
+      if (a.name < b.name) {
+        return -1;
+      }
+      if (a.name > b.name) {
+        return 1;
+      }
+      return 0;
+    },
+
   },
 };
 </script>
 
 <style lang="scss" scoped>
 .body {
-  padding: 1rem 5rem;
+  padding: 1rem 10rem;
   margin: 0;
   justify-content: center;
   display: flex;
