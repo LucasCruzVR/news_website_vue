@@ -1,19 +1,31 @@
 <template>
-  <div>
-    <label>Name:</label>
-    <input type="text" v-model="newCategory"/>
-    <button type="button">Salvar</button>
+  <div class="screenmodal">
+    <div class="boxmodal">
+      <label>Name:</label>
+      <input type="text" v-model="newCategory" />
+      <!--<button type="button">Salvar</button>-->
+      <SaveButton @save="save" />
+    </div>
   </div>
 </template>
 
 <script>
+import SaveButton from "@/components/SaveButton";
 export default {
   name: "NewCategoryModal",
   data() {
     return {
-        newCategory: ""
-    }
-  }
+      newCategory: "",
+    };
+  },
+  components: {
+    SaveButton,
+  },
+  methods: {
+    save() {
+      this.$emit('save')
+    },
+  },
 };
 </script>
 
@@ -43,6 +55,13 @@ export default {
     }
     button {
       width: 100%;
+      margin-top: 2rem;
+      padding: 0.8rem 0;
+    }
+    label {
+      max-width: 20rem;
+      margin-bottom: 3rem;
+      padding-right: 0.5rem;
     }
   }
 }

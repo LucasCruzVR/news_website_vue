@@ -120,7 +120,6 @@ button {
     text-transform: uppercase;
     letter-spacing: .1rem;
     border: none;
-    box-shadow: 0px 2px 10px rgba(252, 176, 105, 0.5);
     transition: ease-in-out .15s;
     cursor: pointer;
 }
