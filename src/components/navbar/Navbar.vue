@@ -42,29 +42,21 @@ img {
 }
 
 .top-nav {
+    
     background-color: var(--white);
     overflow: hidden;
     position: fixed;    /* Set the navbar to fixed position */
-    justify-content: center;
-    align-items: center;
     top: 0;    /* Position the navbar at the top of the page */
     width: 100%;    /* Full width */
     height: 70px;
     z-index: 99;
 }
 
-a {
-    display: flex;
-    //color: #070606;
-    color: var(--black);
-    padding: 0px;
-    text-decoration: none;
-    font-size: 17px;
-}
-
 nav {
-
+    display:flex;
+    justify-content: center;
     ul {
+        width: 100%;
         display: flex;
         list-style: none;
         align-items: center;

@@ -50,13 +50,13 @@
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: 9rem;
   gap: 0.5rem;
+  align-itens: center;
   .item {
     position: relative;
     
     img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
       border-radius: 0.8rem;
     }
     .tag {

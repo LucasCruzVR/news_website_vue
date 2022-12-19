@@ -82,15 +82,13 @@ td {
     padding: 8px;
 }
 
-tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
+tr:nth-child(even){background-color: #f2f2f2;}
 
 .tr-content:hover {
     background-color: var(--blue-light);
 }
 
-tr {
+th {
     background-color: var(--green-blue);
 }
 </style>
