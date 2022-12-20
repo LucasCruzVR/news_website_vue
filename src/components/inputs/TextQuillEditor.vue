@@ -1,5 +1,6 @@
 <template>
   <div class="item-form">
+    
     <label>{{ label }}</label>
     <quill-editor
 
@@ -8,10 +9,14 @@
       @input="handleInput"
       container: container
       ref="refQuillEditor"
-    />
+    ><div id="toolbar" slot="toolbar">
+        <button class="ql-custom-button" @click="twitter"><TwitterIcon/></button>
+      </div></quill-editor>
   </div>
 </template>
 <script>
+var TwitterWidgetsLoader = require('twitter-widgets');
+import TwitterIcon from "vue-material-design-icons/Twitter.vue";
 import "quill/dist/quill.snow.css";
 export default {
   name: "TextQuillEditor",
@@ -19,16 +24,19 @@ export default {
     label: String,
     textContent: String,
   },
-  components: {},
+  components: {TwitterIcon},
   data() {
     return {
       content: this.textContent
     };
-  },
+  },mounted() {  TwitterWidgetsLoader.load(); },
   methods: {
     handleInput(input) {
       this.$emit("input", input);
     },
+    twitter() {
+        this.content = (this.content ? this.content : "") + '<blockquote class="twitter-tweet"><a href="https://twitter.com/klobrille/status/1605204582380052480"></a></blockquote>'
+    }
   },
 };
 </script>
