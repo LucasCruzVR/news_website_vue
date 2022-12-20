@@ -6,10 +6,10 @@
                 <InputText label="Title" v-model="title" />
                 <InputText label="Title Description" v-model="title_description" />
             </div>
-            <ContentText label="Content" v-model="content" />
+            <ContentText label="Content" v-model="content" class="content"/>
             <div class="select-buttons">
                 <Select label="Category" v-model="category" />
-                <input type="file" @input="selectedImage">
+                <input type="file" @change="selectedImage">
                 <div class="buttons">
                     <button class="secondary-button">Preview</button>
                     <button class="primary-button" v-if="loading" @click="save"><img class="button-animation"
@@ -42,7 +42,7 @@ export default {
             content: "",
             category: 0,
             loading: false,
-            image: null,
+            image: "",
         }
     },
     methods: {
@@ -57,6 +57,8 @@ export default {
                 form.append("title_description", this.title_description);
                 form.append("category_id", this.category);
                 form.append("content", this.content);
+                form.append("image_file", this.image);
+                console.log(form);
                 await NewsService.publish(form
                 );
                 this.loading = false;
@@ -83,8 +85,13 @@ export default {
 .create-news {
     padding: 1rem;
     background-color: var(--white-dark);
-    width: auto;
+    max-width: 70%;
     border-radius: 10px;
+}
+
+.content {
+    overflow: hidden;
+    overflow-wrap: break-word;
 }
 
 .inputs {

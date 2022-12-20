@@ -2,7 +2,7 @@
     <div class="item-form">
         <label>{{ label }}</label>
         <select v-model="selected" @click="categorySelected">
-            <option v-for="item in categories" :value="item" :key="item.id">
+            <option v-for="item in categories" :value="item.id" :key="item.id">
                 {{ item.name }}
             </option>
         </select>
@@ -29,7 +29,7 @@ export default {
         async getCategories() {
             const {data} = await CategoriesService.getAllCategories();
             this.categories = data.data;
-            this.selected = this.categories.find(c => c.id == this.selected);
+            //this.selected = this.categories.find(c => c.id == this.selected);
         },
         categorySelected(input) {
             this.$emit('input', input.target.value)

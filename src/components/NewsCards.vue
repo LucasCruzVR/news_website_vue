@@ -3,7 +3,7 @@
         <div class="column">
             <div v-for="post in posts" :key="post.title" class="post">
                 <div class="image-container">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp" class="" />
+                    <img :src="post.image" class="" />
                     <div class="bottom-left ">TAG</div>
                 </div>
 
