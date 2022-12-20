@@ -14,7 +14,11 @@
         <td>{{ category.name }}</td>
         <td>5</td>
         <td class="icons">
-          <ArchiveEditOutline class="archive-edit" title="Edit" />
+          <ArchiveEditOutline
+            class="archive-edit"
+            title="Edit"
+            @click="editCategory(category)"
+          />
           <ArchiveRemoveOutline
             class="archive-remove"
             title="Remove"
@@ -23,14 +27,14 @@
         </td>
       </tr>
     </table>
-    <NewCategoryModal v-if="showModal" @save="newCategory" />
+    <NewCategoryModal v-if="showModal" @save="newCategory" :category="category"/>
   </div>
 </template>
 
 <script>
 import ArchiveRemoveOutline from "vue-material-design-icons/ArchiveRemoveOutline.vue";
 import ArchiveEditOutline from "vue-material-design-icons/ArchiveEditOutline.vue";
-import { getAllCategories } from "@/services/CategoriesService";
+import { getAllCategories, deleteCategory } from "@/services/CategoriesService";
 import NewCategoryModal from "@/components/NewCategoryModal";
 export default {
   name: "CategoriesIndex",
@@ -46,7 +50,9 @@ export default {
     return {
       loading: false,
       categories: [],
+      category: {},
       showModal: false,
+      editId: null
     };
   },
   methods: {
@@ -60,18 +66,38 @@ export default {
         console.log(err);
       }
     },
-    async removeCategory(id){
+    async removeCategory(id) {
       try {
         this.loading = true;
-        console.log(id);
-        this.$swal.fire({
-          text: "Are you sure you want to delete this category?",
-          icon: 'warning',
-          showCancelButton: true,
-          showConfirmButton: true,
-          confirmButtonText: 'Confirm',
-          confirmButtonColor: '#D03333'
-        });
+        this.$swal
+          .fire({
+            text: "Are you sure you want to delete this category?",
+            icon: "warning",
+            showCancelButton: true,
+            showConfirmButton: true,
+            confirmButtonText: "Confirm",
+            confirmButtonColor: "#D03333",
+          })
+          .then( async (result) => {
+            if (result.isConfirmed) {
+              try {
+                await deleteCategory(id);
+                this.loading = false;
+                this.$router.go(this.$router.currentRoute);
+              } catch (err) {
+                console.log(err);
+              }
+            }
+          });
+      } catch (err) {
+        console.log(err);
+      }
+    },
+    async editCategory(category) {
+      try {
+        this.loading = true;
+        this.category = category;
+        this.showModal = !this.showModal;
       } catch (err) {
         console.log(err);
       }

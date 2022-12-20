@@ -2,21 +2,26 @@
   <div class="screenmodal">
     <div class="boxmodal">
       <label>Name:</label>
-      <input type="text" v-model="newCategory" />
+      <input type="text" v-model="categoryName" />
       <!--<button type="button">Salvar</button>-->
-      <SaveButton @save="save" />
+      <SaveButton v-if="!categoryId" @save="save" />
+      <SaveButton v-else @save="update" />
     </div>
   </div>
 </template>
 
 <script>
 import SaveButton from "@/components/SaveButton";
-import {createCategory} from "@/services/CategoriesService";
+import { createCategory, updateCategory } from "@/services/CategoriesService";
 export default {
   name: "NewCategoryModal",
+  props: {
+    category: Object,
+  },
   data() {
     return {
-      newCategory: "",
+      categoryName: this.category.name || "",
+      categoryId: this.category.id || null,
     };
   },
   components: {
@@ -25,10 +30,21 @@ export default {
   methods: {
     async save() {
       try {
-      this.$emit('save')
-      const data = await createCategory(this.newCategory);
-      this.$router.go(this.$router.currentRoute);
-      console.log(data);
+        //this.$emit('save')
+        const data = await createCategory(this.categoryName);
+        this.$router.go(this.$router.currentRoute);
+        console.log(data);
+      } catch (err) {
+        console.log(err);
+      }
+    },
+    async update() {
+      try {
+        console.log(this.categoryId)
+        //this.$emit('save')
+        const data = await updateCategory(this.categoryId, this.categoryName);
+        this.$router.go(this.$router.currentRoute);
+        console.log(data);
       } catch (err) {
         console.log(err);
       }
