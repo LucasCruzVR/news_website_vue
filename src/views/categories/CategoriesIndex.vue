@@ -9,20 +9,27 @@
         <th>Name</th>
         <th>News</th>
         <th></th>
-        <th></th>
       </tr>
       <tr class="tr-content" v-for="category in categories" :key="category.id">
         <td>{{ category.name }}</td>
         <td>5</td>
-        <td>edit</td>
-        <td>delete</td>
+        <td class="icons">
+          <ArchiveEditOutline class="archive-edit" title="Edit" />
+          <ArchiveRemoveOutline
+            class="archive-remove"
+            title="Remove"
+            @click="removeCategory(category.id)"
+          />
+        </td>
       </tr>
     </table>
-    <NewCategoryModal v-if="modal" @save="newCategory" />
+    <NewCategoryModal v-if="showModal" @save="newCategory" />
   </div>
 </template>
 
 <script>
+import ArchiveRemoveOutline from "vue-material-design-icons/ArchiveRemoveOutline.vue";
+import ArchiveEditOutline from "vue-material-design-icons/ArchiveEditOutline.vue";
 import { getAllCategories } from "@/services/CategoriesService";
 import NewCategoryModal from "@/components/NewCategoryModal";
 export default {
@@ -32,12 +39,14 @@ export default {
   },
   components: {
     NewCategoryModal,
+    ArchiveRemoveOutline,
+    ArchiveEditOutline,
   },
   data() {
     return {
       loading: false,
       categories: [],
-      modal: false,
+      showModal: false,
     };
   },
   methods: {
@@ -51,21 +60,25 @@ export default {
         console.log(err);
       }
     },
+    async removeCategory(id){
+      try {
+        this.loading = true;
+        console.log(id);
+        this.$swal.fire({
+          text: "Are you sure you want to delete this category?",
+          icon: 'warning',
+          showCancelButton: true,
+          showConfirmButton: true,
+          confirmButtonText: 'Confirm',
+          confirmButtonColor: '#D03333'
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    },
     newCategory() {
-      this.modal = !this.modal;
+      this.showModal = !this.showModal;
     },
-    compare(a, b) {
-      console.log(a.name)
-      console.log(b.name)
-      if (a.name < b.name) {
-        return -1;
-      }
-      if (a.name > b.name) {
-        return 1;
-      }
-      return 0;
-    },
-
   },
 };
 </script>
@@ -118,5 +131,22 @@ tr:nth-child(even) {
 
 th {
   background-color: var(--green-blue);
+}
+
+.icons {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 2rem;
+}
+
+.archive-edit {
+  color: var(--yellow-dark);
+  padding-right: 1rem;
+  cursor: pointer;
+}
+
+.archive-remove {
+  color: var(--red-dark);
+  cursor: pointer;
 }
 </style>
