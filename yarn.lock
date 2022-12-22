@@ -962,6 +962,62 @@
     "@babel/helper-validator-identifier" "^7.19.1"
     to-fast-properties "^2.0.0"
 
+"@bbob/core@^2.8.2":
+  version "2.8.2"
+  resolved "https://registry.yarnpkg.com/@bbob/core/-/core-2.8.2.tgz#f2e3a9e60ba551f93c0fd6262d53c8111e99a3f7"
+  integrity sha512-/0OhA/7kHO4BATJR+CIYDSJbRoI7Ep+iApTz1fvc3kq4yrrD/iggiNgTxLjYvdkl/yQHY5NC85D6jXgx7ohPOQ==
+  dependencies:
+    "@bbob/parser" "^2.8.2"
+
+"@bbob/html@^2.8.2":
+  version "2.8.2"
+  resolved "https://registry.yarnpkg.com/@bbob/html/-/html-2.8.2.tgz#cd45f8e387d7459cd044f1329e4a7fcfcb3f9d83"
+  integrity sha512-EosS5WCNGxNEfqIIH9eynYhNsUMDbuqrvNMMeIJ6Ok2DnTzysNoGyi8JLKRUV9ytSq2KX5bYYhiQQYMbYPtfEA==
+  dependencies:
+    "@bbob/core" "^2.8.2"
+    "@bbob/plugin-helper" "^2.8.2"
+
+"@bbob/parser@^2.8.2":
+  version "2.8.2"
+  resolved "https://registry.yarnpkg.com/@bbob/parser/-/parser-2.8.2.tgz#a5a187ac23d8248bf7af392a31ba3bc59eecdde3"
+  integrity sha512-7eENTbZ7MUrDcO42v6k8H1hq9yoVGh/M5AkLIJotL8U8NVV8aJ+qfBv9V36rjjVV9qeGQ0/WCZ73fcM9BTNgHQ==
+  dependencies:
+    "@bbob/plugin-helper" "^2.8.2"
+
+"@bbob/plugin-helper@^2.8.2":
+  version "2.8.2"
+  resolved "https://registry.yarnpkg.com/@bbob/plugin-helper/-/plugin-helper-2.8.2.tgz#5c7bd6c6ed90085bd339ffcb19ced0944725fe4e"
+  integrity sha512-EYAdwlgXYNwN1jeT3e35OZwwrpZhHk6WBaSA2fkMTOvR0+U59Qj6IunVmApXfQ2gfDrRRqzErTcVjSbyKC6EJQ==
+
+"@bbob/preset-html5@^2.8.2":
+  version "2.8.2"
+  resolved "https://registry.yarnpkg.com/@bbob/preset-html5/-/preset-html5-2.8.2.tgz#e3e7d6859714cfa5c072fca219665f0797b16cf4"
+  integrity sha512-iHF0GoHaiJiDtAg6xkvXZ1Xl2nWovZOR1p00jOOVR5qLwLfgDWHDM8yWeBWx8TnavHchw0D4gZccEsX+4QIZnA==
+  dependencies:
+    "@bbob/plugin-helper" "^2.8.2"
+    "@bbob/preset" "^2.8.2"
+
+"@bbob/preset-vue@^2.8.2":
+  version "2.8.2"
+  resolved "https://registry.yarnpkg.com/@bbob/preset-vue/-/preset-vue-2.8.2.tgz#1870b0a3d269ede10eb9437d799bb427cc827619"
+  integrity sha512-sybEXVZgqXeZrVbL6Jv74ajkrlhD3R8Y4ntpNkuVYDWB1JFtgNp6ZpSzGDWyMJD5e2EGsG5PqhZLBeDnCuZkYw==
+  dependencies:
+    "@bbob/preset-html5" "^2.8.2"
+
+"@bbob/preset@^2.8.2":
+  version "2.8.2"
+  resolved "https://registry.yarnpkg.com/@bbob/preset/-/preset-2.8.2.tgz#ab52aeaf0cdd334c558dfd313ae7fa55ed95a6e3"
+  integrity sha512-xH1JxA/hrTLyaECJNQ3ubyi/EmzjNgbdZ9uSXrrV/e7avWnsyApRQfeUAPmmaorVNgRDnCQiSZy7FPgNKIoNLg==
+
+"@bbob/vue2@^2.8.2":
+  version "2.8.2"
+  resolved "https://registry.yarnpkg.com/@bbob/vue2/-/vue2-2.8.2.tgz#6b9154932faaf6eb2ddfb003cd0e0c22505d26a9"
+  integrity sha512-ZWqYElcERqceUQrHL5mR9/pe3q5IkAsnoaAdVs/FnYlISCeNYSTP2HCBlJ3vCd3HgcqS8QojdBwc+lj4HY8Xyw==
+  dependencies:
+    "@bbob/core" "^2.8.2"
+    "@bbob/html" "^2.8.2"
+    "@bbob/plugin-helper" "^2.8.2"
+
 "@eslint/eslintrc@^0.4.3":
   version "0.4.3"
   resolved "https://registry.npmjs.org/@eslint/eslintrc/-/eslintrc-0.4.3.tgz"

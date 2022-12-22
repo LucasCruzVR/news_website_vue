@@ -1,7 +1,7 @@
 <template>
   <div class="item-form">
-    
     <label>{{ label }}</label>
+    <!--<blockquote class="twitter-tweet"><a href="https://twitter.com/klobrille/status/1605204582380052480"></a></blockquote>-->
     <quill-editor
 
       class="editor"
@@ -15,6 +15,7 @@
   </div>
 </template>
 <script>
+import preset from '@bbob/preset-vue'
 var TwitterWidgetsLoader = require('twitter-widgets');
 import TwitterIcon from "vue-material-design-icons/Twitter.vue";
 import "quill/dist/quill.snow.css";
@@ -27,7 +28,9 @@ export default {
   components: {TwitterIcon},
   data() {
     return {
-      content: this.textContent
+      content: this.textContent,
+      bbcode: 'Text [b]bolded[/b] and [i]Some Name[/i] from [link]https://twitter.com/klobrille/status/1605204582380052480[/twitter]',
+      plugins: [preset()]
     };
   },mounted() {  TwitterWidgetsLoader.load(); },
   methods: {
@@ -35,7 +38,11 @@ export default {
       this.$emit("input", input);
     },
     twitter() {
-        this.content = (this.content ? this.content : "") + '<blockquote class="twitter-tweet"><a href="https://twitter.com/klobrille/status/1605204582380052480"></a></blockquote>'
+        var xmlString = "[blockquote class='twitter-tweet'][a href='COLOQUE O LINK AQUI'][/a][/blockquote]";
+
+        for (var str in xmlString) {
+            this.content = (this.content ? this.content : "") + xmlString[str];
+        }
     }
   },
 };

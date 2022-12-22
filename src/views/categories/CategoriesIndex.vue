@@ -35,7 +35,7 @@
 import ArchiveRemoveOutline from "vue-material-design-icons/ArchiveRemoveOutline.vue";
 import ArchiveEditOutline from "vue-material-design-icons/ArchiveEditOutline.vue";
 import { getAllCategories, deleteCategory } from "@/services/CategoriesService";
-import NewCategoryModal from "@/components/NewCategoryModal";
+import NewCategoryModal from "@/components/categories/NewCategoryModal";
 export default {
   name: "CategoriesIndex",
   created() {

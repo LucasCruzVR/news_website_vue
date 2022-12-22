@@ -16,8 +16,8 @@
 </template>
 
 <script>
-import HighlightPosts from "@/components/HighlightPosts.vue";
-import NewsCards from "@/components/NewsCards.vue";
+import HighlightPosts from "@/components/news/HighlightPosts.vue";
+import NewsCards from "@/components/news/NewsCards.vue";
 import * as NewsService from "@/services/NewsService";
 export default {
   name: "NewsIndex",

@@ -1,7 +1,7 @@
 <template>
     <div class="item-form">
         <label>{{ label }}</label>
-        <input type="text" name="" id="" @input="handleInput" >
+        <input type="text" :value="inputValue" name="" id="" @input="handleInput" >
     </div>
 </template>
 <script>
