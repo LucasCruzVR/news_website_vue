@@ -48,16 +48,18 @@ export default {
                 title: "",
                 title_description: "",
                 content: "",
-                category: 0,
-                loading: false,
+                category: {},
                 image: "",
+                image_url: ""
             },
-            preview: true
+            preview: true,
+            loading: false,
         }
     },
     methods: {
         selectedImage(event) {
             this.post.image = event.target.files[0];
+            this.post.image_url = URL.createObjectURL(this.post.image)
         },
         async save() {
             try {
@@ -65,7 +67,7 @@ export default {
                 var form = new FormData();
                 form.append("title", this.post.title);
                 form.append("title_description", this.post.title_description);
-                form.append("category_id", this.post.category);
+                form.append("category_id", this.post.category.id);
                 form.append("content", this.post.content);
                 form.append("image_file", this.post.image);
                 console.log(form);
