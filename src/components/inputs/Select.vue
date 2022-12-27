@@ -14,11 +14,11 @@ export default {
     name: 'SelectOption',
     props: {
         label: String,
-        inputValue: Number
+        inputValue: Object
     },
     data() {
         return {
-            selected: 0,
+            selected: this.inputValue || 0,
             categories: []
         }
     },
@@ -31,7 +31,6 @@ export default {
             this.categories = data.data;
         },
         categorySelected(input) {
-            console.log(input.target._value)
             this.$emit('input', input.target._value)
         }
     }

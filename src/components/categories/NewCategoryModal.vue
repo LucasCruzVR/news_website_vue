@@ -30,7 +30,6 @@ export default {
   methods: {
     async save() {
       try {
-        //this.$emit('save')
         const data = await createCategory(this.categoryName);
         this.$router.go(this.$router.currentRoute);
         console.log(data);
@@ -40,8 +39,6 @@ export default {
     },
     async update() {
       try {
-        console.log(this.categoryId)
-        //this.$emit('save')
         const data = await updateCategory(this.categoryId, this.categoryName);
         this.$router.go(this.$router.currentRoute);
         console.log(data);

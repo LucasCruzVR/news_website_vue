@@ -37,7 +37,6 @@ export default {
     },
     methods: {
         newsDetails(id) {
-            console.log('entrei')
             this.$router.push(`news/show/${id}`)
         }
     },

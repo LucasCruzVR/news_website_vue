@@ -7,21 +7,27 @@
         <InputText label="Title" :inputValue="post.title" v-model="post.title" />
         <InputText label="Title Description" :inputValue="post.title_description" v-model="post.title_description" />
       </div>
-      <ContentText label="Content" v-model="post.content" class="content" />
-      <div class="select-buttons">
-        <Select label="Category" v-model="post.category" />
-        <input type="file" @change="selectedImage" />
-        <div class="buttons">
-          <button class="secondary-button" @click="preview = !preview">Preview</button>
-          <button class="primary-button" v-if="loading" @click="save">
-            <img class="button-animation" src="@/assets/images/chart-donut.png" />
-          </button>
-          <button class="primary-button" v-else @click="save">Save</button>
+      <ContentText label="Content" :textContent="post.content" v-model="post.content" class="content" />
+      <div class="selects">
+        <Select label="Category" :inputValue="post.category" v-model="post.category" />
+        <div class="image-upload">
+          <div class="send-image">
+            <label for="file" class="input-file">Select an image</label>
+            <input type="file" @change="selectedImage" id="file"/>
+          </div>
+          <input type="text" class="image-text" readonly disabled  v-model="post.image.name">
         </div>
+      </div>
+      <div class="buttons">
+        <button class="secondary-button" @click="preview = !preview">Preview</button>
+        <button class="primary-button" v-if="loading" @click="save">
+          <img class="button-animation" src="@/assets/images/chart-donut.png" />
+        </button>
+        <button class="primary-button" v-else @click="save">Save</button>
       </div>
     </div>
     <NewsContent v-else :post="post"/>
-    <button class="secondary-button" @click="preview = !preview">Preview</button>
+    <button class="secondary-button" v-if="preview" @click="preview = !preview">Back</button>
     {{post.title }}
     
   </div>
@@ -52,7 +58,7 @@ export default {
                 image: "",
                 image_url: ""
             },
-            preview: true,
+            preview: false,
             loading: false,
         }
     },
@@ -75,6 +81,7 @@ export default {
                 );
                 this.loading = false;
             } catch (err) {
+                this.loading = false;
                 console.log(err)
             }
         }
@@ -114,17 +121,17 @@ export default {
   align-items: center;
   width: 100%;
 }
-.select-buttons {
+.selects {
   display: flex;
   width: 100%;
-  justify-content: center;
+  justify-content: space-around;
+}
 
-  .buttons {
-    padding-top: 0.75rem;
-    justify-content: flex-end;
-    align-content: center;
-    display: flex;
-  }
+.buttons {
+  padding-top: 0.75rem;
+  justify-content: flex-end;
+  align-content: center;
+  display: flex;
 }
 
 button {
@@ -167,5 +174,52 @@ input {
   to {
     transform: rotate(1turn);
   }
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.input-file {
+  margin-top: 12px;
+  padding: 1.1rem 0.6rem;
+  width: 12rem;
+  background-color: #333;
+  color: #FFF;
+  text-transform: uppercase;
+  font-size: 12px;
+  text-align: center;
+  display: block;
+  cursor: pointer;
+  border-radius: .5rem;
+  font-family: "Ubuntu-Bold";
+}
+
+.send-image {
+  display: flex;
+  gap: .5rem;
+  flex-direction: column;
+  padding-bottom: 2rem;
+  padding-right: 1rem;
+}
+
+.image-text {
+  font-family: inherit;
+  font-weight: bold;
+  width: 15rem;
+  border: 0;
+  border-bottom: 3px solid var(--gray-4);
+  outline: 0;
+  font-size: 1rem;
+  color: var(--black);
+  padding: 10px 0 0 0;
+  margin-top: 0.8rem;
+  background: transparent;
+  transition: border-color 0.2s;
+  border-radius: 0;
+}
+.image-upload {
+  display: flex;
+  
 }
 </style>

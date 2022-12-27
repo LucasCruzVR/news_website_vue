@@ -16,7 +16,8 @@
         </div>
         <div>
           <label>Publicated at:</label>
-          <span>post.created_at</span>
+          <span v-if="post.create_at">post.created_at</span>
+          <span v-else>Now</span>
         </div>
         <div>
           <label>Publicado por:</label>
@@ -25,8 +26,7 @@
       </div>
     </div>
     <div class="text">
-      <span v-if="post.content">{{ post.content }}</span>
-      <span v-else>No content</span>
+      <span class="letters" v-html="post.content"></span>
     </div>
   </div>
 </template>
@@ -41,7 +41,6 @@ export default {
     return {};
   },
   created() {
-    console.log(this.post.image_url)
   }
 };
 </script>
@@ -79,5 +78,15 @@ img {
     }
 }
 
+.text {
+  margin-top: 2rem;
+  border-top: 2px solid var(--gray-5);
+  width: 100%;
+  text-align: start;
+  align-items: flex-start;
+  .letters {
+    font-size: 1rem;
+  }
+}
 
 </style>

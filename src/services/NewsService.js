@@ -19,8 +19,19 @@ export async function getAllPublished() {
 }
 
 export async function getPublished(id) {
-    const {data} = await axios.get(
+    const data = await axios.get(
         `${process.env.VUE_APP_BASE_API_URL}/publications/${id}`
     );
-    return {data}
+    return data;
+}
+
+export async function getHighlightsByCategory(category) {
+    const data = await axios.get(
+        `${process.env.VUE_APP_BASE_API_URL}/publications/last_post?category=${category}`,
+        {
+            headers: { 'Content-Type': 'application/json' }
+        }
+    );
+
+    return data;
 }

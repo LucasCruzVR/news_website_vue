@@ -28,6 +28,10 @@ export default {
   data() {
     return {
       newsInfo: [],
+      article: {},
+      games: {},
+      world: {},
+      technology: {},
       loading: true,
     };
   },
@@ -37,11 +41,15 @@ export default {
   methods: {
     async getAllNews() {
       try {
-        const { data } = await NewsService.getAllPublished();
-        this.newsInfo = data.data;
-        this.$set(this.newsInfo, data.data);
+        const allNews = await NewsService.getAllPublished();
+        this.newsInfo = allNews.data.data;
+        this.article = await NewsService.getHighlightsByCategory('Article');
+        this.games = await NewsService.getHighlightsByCategory('Games');
+        this.world = await NewsService.getHighlightsByCategory('World');
+        this.technology = await NewsService.getHighlightsByCategory('Technology');
         this.loading = false;
       } catch (err) {
+        this.loading = false;
         console.log(err);
       }
     },

@@ -34,7 +34,6 @@ export default {
                 this.loading = true;
                 this.content = await NewsService.getPublished(this.id);
                 this.content = this.content.data
-                console.log(this.content)
                 this.loading = false
             } catch (err) {
                 console.log(err);
